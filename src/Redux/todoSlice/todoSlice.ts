@@ -31,6 +31,8 @@ const todoSlice = createSlice({
         deletedTodo.status = "Removed";
         state.deletedTodos.push(deletedTodo);
       }
+
+      saveTodosToLocalStorage(state.deletedTodos);
       deleteTodoFromLocalStorage(action.payload);
     },
     markAsComplete: (state, action: PayloadAction<string>) => {
